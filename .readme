@@ -1,0 +1,60 @@
+Установка первоначального ПО
+
+sudo pacman -S numlockx trayer compton rxvt-unicode urxvt-perls xf86-input-synaptics parcellite networkmanager network-manager-applet feh pcmanfm chromium xmonad xmonad-contrib xmobar git wget acpi geany leafpad smbclient gvfs-smb ntfs-3g cantarell-fonts ttf-liberation ttf-dejavu p7zip unrar unace lrzip xarchiver-gtk2 scrot transmission-gtk flashplugin xf86-video-ati xf86-video-intel xf86-video-nouveau xf86-video-amdgpu gcolor2 rofi lxappearance oblogout vnstat htop pinta gpicview thunderbird-i18n-ru aspell-ru galculator wmctr xorg-xinput dosfstools exfat-utils gnome-menus gmrun screenfetch dunst libnotify xorg-xclock xorg-xev deadbeef libmad mpv
+
+Опционально 
+sudo pacman -S orage lxterminal atom opera procinfo grsync cherrytree dropbox
+xfconf  - утилиты для управления настройками в Xfce
+procinfo - информация об устройствах (lsdev) 
+wmctrl  - это инструмент командной строки для взаимодействия с EWMH
+xorg-xinput - маленькая программа для управления мышью тачпадом и др.
+gnome-menus - нужен для pcmanfm
+
+
+yaourt -S --noconfirm pacli perwindowlayoutd zsh-syntax-highlighting alsa-utils polkit-gnome-gtk2 ttf-ms-fonts paper-icon-theme xcursor-chameleon-pearl wps-office ttf-wps-fonts wps-office-extention-russian-dictionary acpitool localepurge ttf-font-awesome gtk-theme-absolute
+
+Опционально 
+yaourt -S --noconfirm  xscreenshot telegram-desktop oomox-git pepper-flash llpp google-earth
+pepper-flash - плагин для просмотра видео в браузере Opera
+llpp - Очень быстрая программа чтения PDF, основанная на MuPDF и поддерживающая непрерывную прокрутку страниц, закладки и поиск по тексту во всем документе
+apvlv — Легковесная программа просмотра PDF/DjVu/UMD/TXT с горячими клавишами Vim
+
+oh-my-zsh 
+Клонируем репозиторий:
+git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+
+Копируем исходный конфиг .zshrc:
+cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
+
+Шрифты
+sudo pacman -S ttf-croscore ttf-dejavu ttf-ubuntu-font-family ttf-inconsolata ttf-liberation 
+yaourt -S ttf-carlito ttf-caladea ttf-droid-sans-mono-slashed-powerline-git --noconfirm
+Если устанавливаем свои шрифты:
+скопируйте их в папку /usr/share/fonts/Мои_Шрифты
+и выполните
+sudo fc-cache  -fv
+
+Выбрать метод рендеринга:
+Выполните
+sudo nano /etc/profile.d/freetype2.sh
+И приведите к такому виду:
+# Uncomment and configure below
+export FREETYPE_PROPERTIES="truetype:interpreter-version=38"
+
+Изменение файла настроек
+создайте файл /etc/fonts/local.conf c таким содержимым (тут мы настроим отоброжение шрифтов, а также подменим MS шрифты на Chrome OS):
+
+В файл ~/.Xresources внесём следующие строки:
+Xft.dpi: 96
+Xft.antialias: true
+Xft.hinting: true
+Xft.rgba: rgb
+Xft.autohint: false
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
+и выполним:
+xrdb -merge ~/.Xresources
+Также в настройках вашего DE поставьте сглаживание RGBa, вместо grayscale (такое доступно в Gnome и Cinnamon, в остальных не проверял).
+Если используете приложения Java, то в файле /etc/environment добавьте следующую строку:
+_JAVA_OPTIONS='-Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
+- это нужно для того, чтобы приложения Java ощущались и выглядели как GTK
