@@ -1,0 +1,9 @@
+#!/bin/zsh
+DATA=`date "+%d %b."`
+#SHOWDATA=`date "+%d.%m"`
+DAY=`date "+%a"`
+if [[ $DAY = "Сб" ]]; then echo '<fc=#ffab00>'$DAY'</fc>', '<fc=#cccccc>'$DATA'</fc>'
+elif [[ $DAY = "Вс" ]]; then echo '<fc=#ff6500>'$DAY'</fc>', '<fc=#cccccc>'$DATA'</fc>'
+else echo '<fc=#cccccc>'$DAY'</fc>', '<fc=#cccccc>'$DATA'</fc>'
+fi
+exit 0

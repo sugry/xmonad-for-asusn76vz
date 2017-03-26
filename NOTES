@@ -1,0 +1,41 @@
+Вс мар 19 18:25:47 +05 2017
+testing this tools
+Вс мар 19 18:26:30 +05 2017
+Теперь тестируем на русском
+Вс мар 19 18:28:02 +05 2017
+Вс мар 19 18:36:04 +05 2017
+Найти у Haron'а новое меню++
+Вс мар 19 22:09:15 +05 2017
+применить везде mouserezistabletile
+xrandr --setprovideroffloadsink "CAICOS @ pci:0000:01:00.0" Intel
+sudo sh -c 'echo "xrandr --setprovideroffloadsink "CAICOS @ pci:0000:01:00.0" Intel" > /etc/X11/xinit/xinitrc.d/90-prime.sh';sudo chmod +x /etc/X11/xinit/xinitrc.d/90-prime.sh
+Применение:
+По умолчанию программы по прежнему будут запускаться через Intel. Чтобы запустить программу через Radeon нужно перед командой дописать переменную среды. Например, запустим steam через Radeon. Откроем терминал и выполним команду:
+--
+https://bbs.archlinux.org/viewtopic.php?id=160152
+
+ can't get my screen brightness to change either.  It was the same story with the last distro I was using(poobuntu), so I'm assuming it has something to do with my hardware.  I've tried everything.
+To answer your question about the boot options.
+Open up /etc/default/grub, you'll need root privs to edit.
+Goto the line:
+GRUB_CMDLINE_LINUX_DEFAULT="quiet"
+and add the parameters
+GRUB_CMDLINE_LINUX_DEFAULT="quiet acpi_osi=Linux acpi_backlight=vendor"
+Save.
+And then issue the command:
+grub-mkconfig -o /boot/grub/grub.cfg
+Again, you'll need root privs.
+Reboot
+НЕ ПОМОГЛО
+--
+modprobe asus-nb-wmi
+ПРОБЛЕМА БЫЛА В ДРУГОМ - не работали скрипты
+--
+Методом проб и ошибок выяснилось, что lxterminal все же умеет 256 цветов, но не поддерживает (как и urxvt) truecolor; xterm/uxterm уже тоже умеет truecolor. Любителям экстра-цветастости надо иметь у себя в ~/.bashrc дополнительно пару строк...
+export TERM=xterm-256color
+export COLORTERM=truecolorВт мар 21 12:42:38 +05 2017
+Вт мар 21 14:30:58 +05 2017
+Вт мар 21 14:31:28 +05 2017
+Вс мар 26 17:31:57 +05 2017
+Вс мар 26 18:48:30 +05 2017
+Сохраниться на GITHUB

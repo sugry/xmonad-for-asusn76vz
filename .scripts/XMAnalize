@@ -1,0 +1,5 @@
+#!/bin/sh
+if (pidof dunst >/dev/null); then kill $(pidof dunst)
+else (systemd-analyze && systemd-analyze blame) | xargs -0 notify-send -t 0
+fi
+exit 0

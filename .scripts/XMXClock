@@ -1,0 +1,5 @@
+#!/bin/sh
+if (pidof xclock >/dev/null); then kill $(pidof xclock)
+else xclock
+fi
+exit 0
