@@ -233,7 +233,7 @@ sudo fc-cache  -fv
 Выполните
 sudo nano /etc/profile.d/freetype2.sh
 И приведите к такому виду:
-# Uncomment and configure below
+"# Uncomment and configure below
 export FREETYPE_PROPERTIES="truetype:interpreter-version=38"
 
 Изменение файла настроек
@@ -270,17 +270,17 @@ ru_RU.UTF-8 UTF-8
 
 Запуск:
 sudo localepurge
-- я высвободил 370 178+ мегабайт :-)
+- я высвободил 178+ мегабайт :-)
 
 Запуск служб
-# systemctl enable NetworkManager
+sudo systemctl enable NetworkManager
 
-# systemctl start vnstat.service
+sudo systemctl start vnstat.service
 
 Для ведения лога необходимо сначала создать базу данных нужного интерфейса. Например, для проводного соединения:
-# vnstat -u -i enp4s0
+sudo vnstat -u -i enp4s0
 Или для беспроводного:
-# vnstat -u -i wlp3s0
+sudo vnstat -u -i wlp3s0
 
 NoteCase Pro
 Зависимиость gstreamer0.10-base установлена из AUR
@@ -310,3 +310,4 @@ git clone https://github.com/sugry/xmonad-for-asusn76vz
 
 * имя пользователя прописано в конфигурационных файлах, не забудьте проверить и заменить, если будет использовано другое имя пользователя
 ВАЖНО! для файла .xinitrc и всех файлов в каталоге .sripts нужно установить права на запуск chmod +x путь_к_файлу
+Создано по материалам http://archlinux.org.ru/forum/topic/16692/
