@@ -1,4 +1,4 @@
-# xmonad-for-asusn76vz
+# xmonad-for-asus-n76vz
 My configuration xmonad based archlinux for asus n76vz notebook
 The contents of this file in Russian, for translation use the service Google translator
 https://translate.google.com/
